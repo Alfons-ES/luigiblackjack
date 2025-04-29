@@ -1,0 +1,73 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+    background-image: url("images/luigi.jpg");
+    background-size: cover;
+    background-position: center;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+#message-el {
+    text-align: center;
+}
+
+h1 {
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black;
+    margin: 2px;
+    text-align: center;
+}
+
+p {
+    color: whitesmoke;
+    background: rgba(0, 0, 0, 0.5);
+    margin: 10px;
+    padding: 3px 5px;
+    border-radius: 10px;
+}
+
+#text {
+    display: flex
+}
+
+#luigi-info {
+    margin-left: auto;
+}
+
+#message-el {
+    font-style: italic;
+    display: inline-block;
+ 
+}
+#buttons {
+    margin-top: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+button {
+    color: whitesmoke;
+    background: forestgreen;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+#bet {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#bet-btn {
+    width: 105px;
+}
+
+#player-el {
+    margin:0;
+}
