@@ -132,3 +132,7 @@ function endGame() {
     //player=dead
     
 }
+window.startGame = startGame
+window.newCard = newCard
+window.endGame = endGame
+window.bet = bet
