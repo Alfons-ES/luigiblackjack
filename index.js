@@ -2,6 +2,20 @@ let player = {
     name: "Player",
     chips: 200
 }
+import cardempty from "images/cards/card_empty.png"
+import cardA from "images/cards/card_hearts_A.png"
+import card02 from "images/cards/card_hearts_02.png"
+import card03 from "/images/cards/card_hearts_03.png"
+import card04 from "images/cards/card_hearts_04.png"
+import card05 from "images/cards/card_hearts_05.png"
+import card06 from "images/cards/card_hearts_06.png"
+import card07 from "images/cards/card_hearts_07.png"
+import card08 from "images/cards/card_hearts_08.png"
+import card09 from "images/cards/card_hearts_09.png"
+import card10 from "images/cards/card_hearts_10.png"
+import cardJ from "images/cards/card_hearts_J.png"
+import cardQ from "images/cards/card_hearts_Q.png"
+import cardK from "images/cards/card_hearts_K.png"
 
 let cards = []
 let sum = 0
@@ -15,21 +29,22 @@ let dealerssumEl = document.getElementById("dealerssum-el")
 let dealerssum = 0
 let totalBet = document.getElementById("total-bet")
 let activeBet = 0
+
 let cardImages = [
-    "../images/cards/card_empty.png",
-    "../images/cards/card_hearts_A.png",
-    "../images/cards/card_hearts_02.png",
-    "../images/cards/card_hearts_03.png",
-    "../images/cards/card_hearts_04.png",
-    "../images/cards/card_hearts_05.png",
-    "../images/cards/card_hearts_06.png",
-    "../images/cards/card_hearts_07.png",
-    "../images/cards/card_hearts_08.png",
-    "../images/cards/card_hearts_09.png",
-    "../images/cards/card_hearts_10.png",
-    "../images/cards/card_hearts_J.png",
-    "../images/cards/card_hearts_Q.png",
-    "../images/cards/card_hearts_K.png"
+    cardempty,
+    cardA,
+    card02,
+    card03,
+    card04,
+    card05,
+    card06,
+    card07,
+    card08,
+    card09,
+    card10,
+    cardJ,
+    cardQ,
+    cardK
 ]
 let card1 = document.getElementById("card1")
 let card2 = document.getElementById("card2")
