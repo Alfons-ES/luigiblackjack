@@ -8,6 +8,9 @@ body {
     text-align: center;
 }
 
+.space {
+    width: 150px;
+}
 #message-el {
     text-align: center;
 }
@@ -31,9 +34,6 @@ p {
     display: flex
 }
 
-#luigi-info {
-    margin-left: auto;
-}
 
 #message-el {
     font-style: italic;
@@ -64,10 +64,15 @@ button {
     align-items: flex-end;
 }
 
-#bet-btn {
-    width: 105px;
+#bet1, #bet5, #betall {
+    width: 50px;
+    margin-left: 2px;
 }
 
 #player-el {
     margin:0;
+}
+
+#dealer-cards {
+    margin-left: auto;
 }

@@ -10,14 +10,31 @@ let isAlive = false
 let message = ""
 let messageEl = document.getElementById("message-el")
 let sumEl = document.getElementById("sum-el")
-let cardsEl = document.getElementById("cards-el")
 let playerEl = document.getElementById("player-el")
 let dealerssumEl = document.getElementById("dealerssum-el")
-let dealerscardsEl = document.getElementById("dealerscards-el")
-let dealerscards = []
 let dealerssum = 0
-let betBtn = document.getElementById("bet-btn")
+let totalBet = document.getElementById("total-bet")
 let activeBet = 0
+let cardImages = [
+    "images/cards/card_empty.png",
+    "images/cards/card_hearts_A.png",
+    "images/cards/card_hearts_02.png",
+    "images/cards/card_hearts_03.png",
+    "images/cards/card_hearts_04.png",
+    "images/cards/card_hearts_05.png",
+    "images/cards/card_hearts_06.png",
+    "images/cards/card_hearts_07.png",
+    "images/cards/card_hearts_08.png",
+    "images/cards/card_hearts_09.png",
+    "images/cards/card_hearts_10.png",
+    "images/cards/card_hearts_J.png",
+    "images/cards/card_hearts_Q.png",
+    "images/cards/card_hearts_K.png"
+]
+let card1 = document.getElementById("card1")
+let card2 = document.getElementById("card2")
+
+
 
 playerEl.textContent = player.name + ": " + player.chips + "£"
 
@@ -39,14 +56,24 @@ function startGame() {
     let secondCard = getRandomCard()
     cards = [firstCard, secondCard]
     sum = firstCard + secondCard
+    card1.src = cardImages[firstCard]
+    card2.src = cardImages[secondCard]
+    
+    let imgContainer = document.getElementById('card-container');
+    imgContainer.innerHTML = "";
+    let imgContainerDealer = document.getElementById('dealer-cards');
+    imgContainerDealer.innerHTML = "";
+    
+    document.getElementById("newcard-btn").innerHTML = "New Card"
+    document.getElementById("stay-btn").innerHTML = "Stay"
+    document.getElementById("start-btn").innerHTML = ""
+    document.getElementById("bet1").innerHTML = ""
+    document.getElementById("bet5").innerHTML = ""
+    document.getElementById("betall").innerHTML = ""
     renderGame()
 }
 
 function renderGame() {
-    cardsEl.textContent = "Cards: "
-    for (let i = 0; i < cards.length; i++) {
-        cardsEl.textContent += cards[i] + " "
-    }
     
     sumEl.textContent = "Sum: " + sum
     if (sum <= 20) {
@@ -58,17 +85,19 @@ function renderGame() {
         player.chips += activeBet 
         player.chips += activeBet 
         playerEl.textContent = player.name + ": " + player.chips + "£"
-        betBtn.textContent = "Bet"
+        betReset()
         activeBet = 0
+        buttonReset()
+        
     } else {
         message = "You're out! Do you want to make a bet before you start a new game?"
         isAlive = false
-        betBtn.textContent = "Bet"
+        betReset()
         activeBet = 0
+        buttonReset()
     }
     messageEl.textContent = message
-    dealerscards = []
-    dealerscardsEl.textContent = "Luigi's Cards:"
+
     dealerssum = 0
     dealerssumEl.textContent = "Sum:"
     
@@ -80,17 +109,40 @@ function newCard() {
         let card = getRandomCard()
         sum += card
         cards.push(card)
+        
+        let cardImg = document.createElement("img");
+        cardImg.src = cardImages[card];
+        let imgContainer = document.getElementById("card-container")
+        imgContainer.appendChild(cardImg);
+        
         renderGame()        
     }
 }
 
-function bet() {
+function bet1() {
     if (isAlive === false) {
-        console.log("betted")
+        player.chips -= 1
+        activeBet += 1
+        playerEl.textContent = player.name + ": " + player.chips + "£"
+        totalBet.textContent = "Bet = " + activeBet + "£"
+    }
+    //+5 everytime player presses button. Cant be pressed when player=alive
+}
+function bet5() {
+    if (isAlive === false) {
         player.chips -= 5
         activeBet += 5
         playerEl.textContent = player.name + ": " + player.chips + "£"
-        betBtn.textContent = "Bet = " + activeBet + "£"
+        totalBet.textContent = "Bet = " + activeBet + "£"
+    }
+    //+5 everytime player presses button. Cant be pressed when player=alive
+}
+function betall() {
+    if (isAlive === false) {
+        activeBet += player.chips
+        player.chips -= player.chips
+        playerEl.textContent = player.name + ": " + player.chips + "£"
+        totalBet.textContent = "Bet = " + activeBet + "£"
     }
     //+5 everytime player presses button. Cant be pressed when player=alive
 }
@@ -100,12 +152,13 @@ function endGame() {
     if (dealerssum <= sum && sum < 22 && hasBlackJack === false) {
         let card = getRandomCard()
         dealerssum += card
-        dealerssumEl.textContent = "Sum: " + dealerssum
-        dealerscards.push(card)
-        dealerscardsEl.textContent = "Luigi's Cards: "
-        for (let i = 0; i < dealerscards.length; i++) {
-            dealerscardsEl.textContent += dealerscards[i] + " "
-        }
+        dealerssumEl.textContent = "Sum: " + dealerssum   
+        
+        let cardImg = document.createElement("img");
+        cardImg.src = cardImages[card];
+        let imgContainer = document.getElementById("dealer-cards")
+        imgContainer.appendChild(cardImg);
+    
         endGame()
     }
     else {  
@@ -113,18 +166,18 @@ function endGame() {
     
     if (dealerssum > sum && dealerssum < 22) {
         messageEl.textContent = "You lose! Do you want to make a bet before you start a new game?"
-        betBtn.textContent = "Bet"
+        betReset()
         activeBet = 0
-        
+        buttonReset()
     }
     if (dealerssum > sum && dealerssum >= 22) {
         messageEl.textContent = "You win! Do you want to make a bet before you start a new game?"
         player.chips += activeBet 
         player.chips += activeBet 
         playerEl.textContent = player.name + ": " + player.chips + "£"
-        betBtn.textContent = "Bet"
+        betReset()
         activeBet = 0
-        
+        buttonReset()
     }
     //dealer draws cards until more than player.
     //if more than player, bet is lost
@@ -132,7 +185,23 @@ function endGame() {
     //player=dead
     
 }
+
+function buttonReset() {
+    document.getElementById("newcard-btn").innerHTML = ""
+    document.getElementById("stay-btn").innerHTML = ""
+    document.getElementById("start-btn").innerHTML = "Start Game"
+    document.getElementById("bet1").innerHTML = "1£"
+    document.getElementById("bet5").innerHTML = "5£"
+    document.getElementById("betall").innerHTML = "ALL"
+}
+
+function betReset() {
+    totalBet.textContent = "Bet = 0£"
+}
+
 window.startGame = startGame
 window.newCard = newCard
 window.endGame = endGame
-window.bet = bet
+window.bet1 = bet1
+window.bet5 = bet5
+window.betall = betall

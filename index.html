@@ -3,25 +3,35 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <h1>Luigi-Blackjack</h1>
+        <h1>Luigi's Blackjack!</h1>
         <p id="message-el">Want to play a round? Make a bet before you play!</p>
         <div id="text">
             <div id="player-info">
-                <p id="cards-el">Cards:</p>
-                <p id="sum-el">Sum:</p>
+                <p id="sum-el">Total:</p>
             </div>
-            <div id="luigi-info">
-                <p id="dealerscards-el">Luigi's Cards:</p>
-                <p id="dealerssum-el">Sum:</p>
+            <div id="cardoneandtwo">
+                <img id="card1" src="images/cards/card_empty.png">
+                <img id="card2" src="images/cards/card_empty.png">
+            </div>
+            <div id="card-container"></div>
+            <div class="space"></div>
+            <div id="dealer-cards"></div>
+            <div id="dealer-info">
+                <p id="dealerssum-el">Total:</p>
             </div>
         </div>
         <div id="buttons">
-            <button onclick="startGame()">START GAME</button>
-            <button onclick="newCard()">NEW CARD</button>
-            <button onclick="endGame()">STOP</button>
+            <button id="start-btn"onclick="startGame()">Sart Game</button>
+            <button id="newcard-btn" onclick="newCard()"></button>
+            <button id="stay-btn" onclick="endGame()"></button>
         </div>
         <div id="bet">
-            <button id="bet-btn" onclick="bet()">Bet</button>
+            <p id="total-bet">Bet = 0£</p>
+            <div id="bet-btns">
+                <button id="bet1" onclick="bet1()">1£</button>
+                <button id="bet5" onclick="bet5()">5£</button>
+                <button id="betall" onclick="betall()">ALL</button>
+            </div id="bet-btns">
             <p id="player-el"></p>
         </div>
         <script src="index.js" type="module"></script>
