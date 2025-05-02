@@ -205,8 +205,8 @@ function buttonReset() {
     document.getElementById("newcard-btn").innerHTML = ""
     document.getElementById("stay-btn").innerHTML = ""
     document.getElementById("start-btn").innerHTML = "Start Game"
-    document.getElementById("bet1").innerHTML = "1£"
-    document.getElementById("bet5").innerHTML = "5£"
+    document.getElementById("bet1").innerHTML = "+1£"
+    document.getElementById("bet5").innerHTML = "+5£"
     document.getElementById("betall").innerHTML = "ALL"
 }
 
