@@ -198,10 +198,3 @@ function buttonReset() {
 function betReset() {
     totalBet.textContent = "Bet = 0£"
 }
-
-window.startGame = startGame
-window.newCard = newCard
-window.endGame = endGame
-window.bet1 = bet1
-window.bet5 = bet5
-window.betall = betall
