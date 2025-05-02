@@ -1,6 +1,6 @@
 let player = {
     name: "Player",
-    chips: 200
+    chips: 50000
 }
 import cardempty from "/images/cards/card_empty.png"
 import cardA from "/images/cards/card_hearts_A.png"
