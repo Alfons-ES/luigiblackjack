@@ -16,20 +16,20 @@ let dealerssum = 0
 let totalBet = document.getElementById("total-bet")
 let activeBet = 0
 let cardImages = [
-    "/images/cards/card_empty.png",
-    "/images/cards/card_hearts_A.png",
-    "/images/cards/card_hearts_02.png",
-    "/images/cards/card_hearts_03.png",
-    "/images/cards/card_hearts_04.png",
-    "/images/cards/card_hearts_05.png",
-    "/images/cards/card_hearts_06.png",
-    "/images/cards/card_hearts_07.png",
-    "/images/cards/card_hearts_08.png",
-    "/images/cards/card_hearts_09.png",
-    "/images/cards/card_hearts_10.png",
-    "/images/cards/card_hearts_J.png",
-    "/images/cards/card_hearts_Q.png",
-    "/images/cards/card_hearts_K.png"
+    "../images/cards/card_empty.png",
+    "../images/cards/card_hearts_A.png",
+    "../images/cards/card_hearts_02.png",
+    "../images/cards/card_hearts_03.png",
+    "../images/cards/card_hearts_04.png",
+    "../images/cards/card_hearts_05.png",
+    "../images/cards/card_hearts_06.png",
+    "../images/cards/card_hearts_07.png",
+    "../images/cards/card_hearts_08.png",
+    "../images/cards/card_hearts_09.png",
+    "../images/cards/card_hearts_10.png",
+    "../images/cards/card_hearts_J.png",
+    "../images/cards/card_hearts_Q.png",
+    "../images/cards/card_hearts_K.png"
 ]
 let card1 = document.getElementById("card1")
 let card2 = document.getElementById("card2")
