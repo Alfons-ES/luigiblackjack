@@ -8,6 +8,9 @@ body {
     text-align: center;
 }
 
+img {
+    width: 128px;
+}
 .space {
     width: 150px;
 }
